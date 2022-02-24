@@ -19,9 +19,9 @@
                     {props.forecasts.map(forecast =>
                         <tr key={forecast.Date}>
                             <td>{formatDate(forecast.Date)}</td>
-                            <td>{forecast.Day.maxtemp_c}</td>
-                            <td>{forecast.Day.mintemp_f}</td>
-                            <td>{forecast.Day.condition.text}</td>
+                            <td>{forecast.Day.Maxtemp_c}</td>
+                            <td>{forecast.Day.Mintemp_f}</td>
+                            <td>{forecast.Day.Condition.Text}</td>
                         </tr>
                     )}
                 </tbody>
