@@ -5,15 +5,15 @@
     /// </summary>
     public class Location
     {
-        public string name { get; set; }
-        public string region { get; set; }
-        public string country { get; set; }
-        public double lat { get; set; }
+        public string Name { get; set; }
+        public string Region { get; set; }
+        public string Country { get; set; }
+        public double Lat { get; set; }
 
-        public double lon { get; set; }
-        public string tz_id { get; set; }
-        public int localtime_epoch { get; set; }
-        public DateTime localtime { get; set; }
+        public double Lon { get; set; }
+        public string Tz_id { get; set; }
+        public int Localtime_epoch { get; set; }
+        public DateTime Localtime { get; set; }
 
     }
 }

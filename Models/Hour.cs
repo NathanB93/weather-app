@@ -1,35 +1,36 @@
 ﻿namespace WeatherApp.Models
 {
     /// <summary>
-    /// A class which represents an hourly weather forecast.
+    /// A class which represents a detailed forecast for a single hour
+    /// in a day.
     /// </summary>
     public class Hour
     {
-        public DateTime time { get; set; }
+        public DateTime Time { get; set; }
 
-        public double temp_c { get; set; }
+        public double Temp_c { get; set; }
 
-        public double temp_f { get; set; }
+        public double Temp_f { get; set; }
 
-        public int is_day { get; set; }
+        public int Is_day { get; set; }
 
-        public Condition condition { get; set; }
+        public Condition Condition { get; set; }
 
-        public double wind_mph { get; set; }
+        public double Wind_mph { get; set; }
 
-        public double wind_kph { get; set; }
+        public double Wind_kph { get; set; }
 
-        public string wind_dir { get; set; }
+        public string Wind_dir { get; set; }
 
-        public double precip_mm { get; set; }
+        public double Precip_mm { get; set; }
 
-        public double precip_in { get; set; }
+        public double Precip_in { get; set; }
 
-        public int chance_of_rain { get; set; }
+        public int Chance_of_rain { get; set; }
 
-        public double gust_mph { get; set; }
+        public double Gust_mph { get; set; }
 
-        public double gust_kph { get; set; }
+        public double Gust_kph { get; set; }
 
     }
 }

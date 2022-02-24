@@ -12,23 +12,23 @@ namespace WeatherApp.Services
     /// This class is a service providing methods for making external API calls to 
     /// WeatherAPI, as well as assosciated processes.  
     /// </summary>
-    public class WeatherAPIService : IWeatherAPIService
+    public class WeatherApiService : IWeatherApiService
     {
         private readonly IHttpClientFactory _httpClientFactory;
 
-        public WeatherAPIService(IHttpClientFactory httpClientFactory)
+        public WeatherApiService(IHttpClientFactory httpClientFactory)
         {
             _httpClientFactory = httpClientFactory;
         }
-        /// <summary>
-        /// Method calls WeatherAPI for a given location
+        /// <summary>method <c>GetForecastAsync</c> 
+        /// makes external API call to 'WeatherAPI' to retrieve weather data for a given location.
         /// </summary>
-        /// <param name="location"></param>
-        /// <returns></returns>
-        public async Task<WeatherAPIResponse?> GetForecastAsync(string location)
+        /// <param name="location"> the location to retrieve weather data for. </param>
+        /// <returns> A WeatherApiCall object, containing all weather data retrieved </returns>
+        public async Task<WeatherApiCall?> GetForecastAsync(string location)
         {
             string url = "http://api.weatherapi.com/v1/forecast.json?key=4ef2b4491aa441a283b183804221702&q="
-                + location + "&days=5&aqi=no&alerts=no";
+                + location + "&days=3&aqi=no&alerts=no";
 
 
             var httpClient = _httpClientFactory.CreateClient();
@@ -40,30 +40,38 @@ namespace WeatherApp.Services
             }
             var json = await httpResponse.Content.ReadAsStringAsync();
 
-            var weatherApiResponse = JsonConvert.DeserializeObject<WeatherAPIResponse>(json);
+            var weatherApiResponse = JsonConvert.DeserializeObject<WeatherApiCall>(json);
 
             return weatherApiResponse;
 
         }
 
         /// <summary>
-        /// Method which produces a list of DailyForecast from a WeatherAPIResponse
+        /// Method <c> PrepareDailyForecast </c> which produces a list of DailyForecast from a WeatherApiCall
+        /// 
+        /// 
         /// </summary>
-        /// <param name="response"></param>
-        /// <returns></returns>
-        public List<DailyForecast> PrepareDailyForecast(WeatherAPIResponse response)
+        /// <param name="response"> A WeatherAPI object containing forecast data
+        /// to extract daily forecasts from </param>
+        /// <returns> A list of DailyForecast's</returns>
+        public List<DailyForecast> PrepareDailyForecast(WeatherApiCall response)
         {
+            
             var dailyForecasts = new List<DailyForecast>();
+            if (response != null) {
+                var forecastdays = response.Forecast.Forecastday;
 
-            var forecastdays = response.Forecast.forecastday;
+                foreach (ForecastDay forecastDay in forecastdays)
+                {
+                    DailyForecast dailyForecast = new DailyForecast(forecastDay.Date, forecastDay.Day);
+                    dailyForecasts.Add(dailyForecast);
+                }
 
-            foreach (ForecastDay forecastDay in forecastdays)
-            {
-                DailyForecast dailyForecast = new DailyForecast(forecastDay.date, forecastDay.day);
-                dailyForecasts.Add(dailyForecast);
+                return dailyForecasts;
             }
-
             return dailyForecasts;
+
+
 
         }
 

@@ -1,11 +1,12 @@
 ﻿namespace WeatherApp.Models
 {
     /// <summary>
-    /// A class to represnt a weather forecast returned by a WeatherAPI call
+    /// A class to represnt a complete weather forecast retrieved as part 
+    /// of a WeatherAPI call
     /// </summary>
     public class WeatherForecast
     {
-        public ForecastDay[] forecastday { get; set; }
+        public ForecastDay[] Forecastday { get; set; }
 
     }
 }

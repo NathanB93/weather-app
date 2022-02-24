@@ -1,9 +1,8 @@
 ﻿namespace WeatherApp.Models
 {
     /// <summary>
-    /// A class to allow the deserialization of the day objects in WeatherAPi call 
-    /// response, holds the details of a days weather forecast.   
-    /// </summary>
+    /// A class to hold a days weather forecast.
+    /// <summary/>
     public class Day
     {
         public double maxtemp_c { get; set; }

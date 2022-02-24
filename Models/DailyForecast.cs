@@ -1,16 +1,17 @@
 ﻿namespace WeatherApp.Models
 {
     /// <summary>
-    /// A DTO whuch represents a daily weather forecast to be returned to the client 
-    /// </summary>
+    /// A class to represent forecast data for a given day, holds
+    /// the days date and weather info
+    /// </summary> 
     public class DailyForecast
     {
         public DailyForecast(DateTime date, Day day) {
-            this.date = date;
-            this.day = day;
+            this.Date = date;
+            this.Day = day;
         }
-        public DateTime date { get; set; }
+        public DateTime Date { get; set; }
 
-        public Day day { get; set; }
+        public Day Day { get; set; }
     }
 }

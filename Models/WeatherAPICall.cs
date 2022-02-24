@@ -1,9 +1,9 @@
 ﻿namespace WeatherApp.Models
 {
     /// <summary>
-    /// A class to represent a WeatherAPI call response  
+    /// A class to represent the data retrieved by a WeatherAPI call.   
     /// </summary>
-    public class WeatherAPIResponse
+    public class WeatherApiCall
     {
         public Location Location { get; set; }
 

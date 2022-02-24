@@ -16,7 +16,7 @@ export default class App extends Component {
     return (
       <Layout>
         <Route exact path='/' component={Home} />
-            <AuthorizeRoute path='/fetch-data' component={WeatherForecast} />
+            <AuthorizeRoute path='/weather-forecast' component={WeatherForecast} />
         <Route path={ApplicationPaths.ApiAuthorizationPrefix} component={ApiAuthorizationRoutes} />
       </Layout>
     );

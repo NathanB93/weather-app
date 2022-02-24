@@ -1,12 +1,12 @@
 ﻿namespace WeatherApp.Models
 {
     /// <summary>
-    /// A class representing the weather condition object within the JSON response of a WeatherAPI call
+    /// A class to represent the weather condition data object returned by a WeatherAPI call
     /// </summary>
     public class Condition
     {
-        public string text { get; set; }
-        public string icon { get; set; }
-        public int code { get; set; }
+        public string Text { get; set; }
+        public string Icon { get; set; }
+        public int Code { get; set; }
     }
 }

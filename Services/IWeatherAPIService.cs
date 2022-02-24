@@ -3,10 +3,10 @@ using WeatherApp.Models;
 
 namespace WeatherApp.Services
 {
-    public interface IWeatherAPIService
+    public interface IWeatherApiService
     {
-        Task<WeatherAPIResponse> GetForecastAsync(string location);
+        Task<WeatherApiCall> GetForecastAsync(string location);
 
-        List<DailyForecast> PrepareDailyForecast(WeatherAPIResponse response);
+        List<DailyForecast> PrepareDailyForecast(WeatherApiCall response);
     }
 }

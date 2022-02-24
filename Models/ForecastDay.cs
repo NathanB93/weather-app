@@ -1,17 +1,20 @@
 ﻿namespace WeatherApp.Models
 {
     /// <summary>
-    /// A class which represents the forecast day object from WeatherAPI call 
+    /// A class containg  all forecast data for a single day, including the day's 
+    /// date, daily average forecast, astrological data and a detailed hour by hour 
+    /// forecast
+    /// 
     /// </summary>
     public class ForecastDay
     {
-        public DateTime date { get; set; }
+        public DateTime Date { get; set; }
 
-        public Day day { get; set; }
+        public Day Day { get; set; }
 
-        public Astro astro { get; set; }
+        public Astro Astro { get; set; }
 
-        public Hour[] hour { get; set; }
+        public Hour[] Hour { get; set; }
 
     }
 }

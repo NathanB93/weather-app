@@ -27,7 +27,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
 builder.Services.AddHttpClient();
 
-builder.Services.AddScoped<IWeatherAPIService, WeatherAPIService>();
+builder.Services.AddScoped<IWeatherApiService, WeatherApiService>();
 
 var app = builder.Build();
 
